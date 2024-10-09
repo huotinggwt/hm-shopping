@@ -1,11 +1,5 @@
 <template>
-    <div class="box"></div>
+    <router-view></router-view>
 </template>
 
-<style lang="less">
-.box {
-    width: 300px;
-    height: 300px;
-    background-color: pink;
-}
-</style>
+<style lang="less"></style>

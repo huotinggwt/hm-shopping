@@ -35,7 +35,7 @@ module.exports = {
     overrides: [
         {
             // 对特定文件类型（.vue 和 .ts）进行 ESLint 检查
-            files: ['*.vue', '*.ts'], // 扩展文件类型，包含 .vue, .ts 文件
+            files: ['*.vue', '*.less', '*.ts'], // 扩展文件类型，包含 .vue, .ts 文件
             rules: {
                 // 可以在此添加针对这些文件的额外规则
             },
