@@ -18,15 +18,12 @@ export const getMsgCode = (captchaCode, captchaKey, mobile) => {
 
 // 3. 登录
 export const codeLogin = (mobile, smsCode) => {
-    return request.post(
-        'https://apifoxmock.com/m1/4928016-4585237-default/data',
-        {
-            form: {
-                isParty: false,
-                mobile,
-                partyData: {},
-                smsCode,
-            },
-        }
-    )
+    return request.post('/passport/login', {
+        form: {
+            isParty: false,
+            mobile,
+            partyData: {},
+            smsCode,
+        },
+    })
 }

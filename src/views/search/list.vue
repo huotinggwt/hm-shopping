@@ -11,7 +11,7 @@
             readonly
             shape="round"
             background="#ffffff"
-            value="手机"
+            :value="querySearch || '搜索商品'"
             show-action
             @click="$router.push('/search')"
         >
@@ -28,17 +28,46 @@
         </div>
 
         <div class="goods-list">
-            <GoodsItem v-for="item in 10" :key="item"></GoodsItem>
+            <GoodsItem
+                v-for="item in proList"
+                :key="item.goods_id"
+                :item="item"
+            ></GoodsItem>
         </div>
     </div>
 </template>
 
 <script>
+import { getProList } from '@/api/product'
 import GoodsItem from '@/components/GoodsItem.vue'
 export default {
     name: 'SearchIndex',
     components: {
         GoodsItem,
+    },
+    computed: {
+        // 获取地址栏的搜索关键字
+        querySearch() {
+            return this.$route.query.search
+        },
+    },
+    data() {
+        return {
+            page: 1, // 页面设置默认值一页，因为数据不多
+            proList: [], // 商品列表
+        }
+    },
+    async created() {
+        const {
+            data: { list },
+        } = await getProList({
+            // 根据地址栏的ID进行渲染（分类页传递的）
+            categoryId: this.$route.query.categoryId,
+            // 根据地址栏的关键字进行渲染（搜索页传递的）
+            goodsName: this.querySearch,
+            page: this.page,
+        })
+        this.proList = list.data
     },
 }
 </script>

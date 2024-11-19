@@ -12,7 +12,19 @@ import {
     Tabbar,
     TabbarItem,
     Icon,
+    Rate,
+    ActionSheet,
+    Dialog,
+    Checkbox,
+    Tab,
+    Tabs,
 } from 'vant'
+Vue.use(Tab)
+Vue.use(Tabs)
+Vue.use(Checkbox)
+Vue.use(Dialog)
+Vue.use(ActionSheet)
+Vue.use(Rate)
 Vue.use(Icon)
 Vue.use(GridItem)
 Vue.use(Search)

@@ -39,8 +39,8 @@ export default {
     name: 'SearchIndex',
     data() {
         return {
-            search: '', //用户输入的搜索内容
-            history: ['手机', '白酒', '电视'],
+            search: '', // 用户输入的搜索内容
+            history: getHistoryList(), // 获取本地的搜索历史
         }
     },
     methods: {
@@ -53,6 +53,7 @@ export default {
                 // splice(从哪开始,删除几个,项1,项2)
                 this.history.splice(index, 1)
             }
+            // 将最近的搜索添加到history最前面
             this.history.unshift(key)
             // 存储搜索历史到本地
             setHistoryList(this.history)
@@ -60,7 +61,10 @@ export default {
             this.$router.push(`/searchlist?search=${key}`)
         },
         clear() {
+            // 将当前页面展示的搜索历史清空
             this.history = []
+            // 将本地存储的搜索历史清空
+            setHistoryList([])
         },
     },
 }

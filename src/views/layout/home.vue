@@ -42,8 +42,8 @@
             <div class="goods-list">
                 <GoodsItem
                     v-for="item in proList"
-                    :item="item"
                     :key="item.goods_id"
+                    :item="item"
                 ></GoodsItem>
             </div>
         </div>

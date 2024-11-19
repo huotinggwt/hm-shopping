@@ -1,6 +1,5 @@
 <template>
     <div>
-        <div>我是layout</div>
         <!-- 二级路由出口：二级路由组件展示的位置 -->
         <router-view></router-view>
         <!-- 底部导航栏 -->
@@ -21,4 +20,4 @@
 export default {}
 </script>
 
-<style></style>
+<style scoped></style>

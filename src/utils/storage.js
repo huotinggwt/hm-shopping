@@ -16,6 +16,7 @@ export const getInfo = () => {
 
 // 设置个人信息
 export const setInfo = (info) => {
+    //json.srtingify()将对象转换成json格式的字符串
     localStorage.setItem(INFO_KEY, JSON.stringify(info))
 }
 

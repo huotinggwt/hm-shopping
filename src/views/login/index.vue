@@ -1,6 +1,7 @@
 <template>
     <div class="login">
-        <!-- $router.go -->
+        <!-- $router.go是 Vue Router 提供的方法，用于在浏览器的历史记录中向前或向后导航。
+        go(-1) 表示“后退一步”，也就是返回到上一个页面。 -->
         <van-nav-bar title="会员登录" left-arrow @click-left="$router.go(-1)" />
         <div class="container">
             <div class="title">
@@ -137,7 +138,12 @@ export default {
             // 登录成功将返回的token和userId存储到vuex中
             this.$store.commit('user/setUserInfo', res.data)
             // 登录成功跳转到首页同时给出提示
-            this.$router.push('/')
+
+            // 进行判断，看地址栏有没有回跳地址
+            // 如果有，说明是其他页面拦截到登录页面的，需要回跳
+            // 这里使用replace而不是push，是为了不新增路由的历史，点返回可以回到原页面而不是登录页
+            const url = this.$route.query.backUrl || '/'
+            this.$router.replace(url)
             this.$toast('登录成功')
         },
     },
