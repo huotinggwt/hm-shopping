@@ -1,29 +1,3 @@
-# hm-shopping
+# 黑马 vue2 商城购物车项目
 
-## Project setup
-
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-
-```
-yarn build
-```
-
-### Lints and fixes files
-
-```
-yarn lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+其短信验证码统一采用 246810，用户登录信息存储在浏览器本地，地址接口返回的数据为空，所以在前台写的固定的地址
